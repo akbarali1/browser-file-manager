@@ -1,6 +1,8 @@
 # file-menjr
 PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 
+[Vaqtinchalik namuna](http://manager.webschool.uz/manager/) parol: `johncms`
+
 # O'rnatish
 1. Kodni ZIP qilib yuklab oling 
 2. Saytning bosh papkasiga zipni yuklang
@@ -8,15 +10,11 @@ PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 4. http://saytingiz.uz/manager/ ga kiring
 5. Kirish uchun demo parol: `johncms`
 
-
 # Parolni yanglilash
 `manager/classes/yadro.php` dagi `define('PASSWORD', '7b00f8fc9bd0b49025a4c5e09b8ebed3');` ni o'zgartirasiz.
-Parol md5da ikki marta shifrlangan bo'lishi kerak `echo md5(md5('buparol'));` shaklida shifrlangan parolni qo`yasiz
+Parol md5da ikki marta shifrlangan bo'lishi kerak `echo md5(md5('buparol'));` shaklida shifrlangan parolni qo'yasiz
 
 Agarda siz demo versiyani ishga tushurmoqchi bo'lsangiz `manager/classes/yadro.php` dagi `define('DEMO_VERSION', false);` ni `define('DEMO_VERSION', true);` qilishingiz kerak
-
-# E'slatma
-Zipni papkada chiqarishdan oldin papkaning to'liq zahira nushasini olib qo'ying. (Har extimolga qarshi).
 
 # Qilingan ishlar
 Hozircha qilingan  o'zgarishlar 
@@ -35,7 +33,7 @@ Undan tashqati eski KOd yozishni qiziqarli va tezor kod yozishga oon bo`lishi uh
 
 `Ctrl+S` va `SHift+F12` faylni saqlash
 
-Ctrl+b faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o`sha papkaga yangi fayl sifatida saqlanadi) (Hozirda ushbu fuksiya ishlab chiqilmoqda)
+Ctrl+b faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi) (Hozirda ushbu fuksiya ishlab chiqilmoqda)
 
 # Tezkor klavishlar
 # Кодларни яшириш
@@ -192,6 +190,20 @@ Boshida kodni faqat o'zim ishlatishim uchun yozgan edim. Keyn githubga ochiq hol
 
 
 # Yoqqan bo'lsa yulduzcha bosish esdan chiqamasin
+
+
+
+# Fayl mejr rasmlari
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/newfolder.png)
+
+
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/newfile.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/login.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/index.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/ifsnippet.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/fileeditor.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/dellete.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/rename.png)
 
 
 
