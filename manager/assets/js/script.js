@@ -482,6 +482,32 @@ $(function() {
 }
 }
 
+function delletefolder (fayl) {
+   var proceed = confirm("Are you sure you want to delete this "+fayl+" folder?");
+   if (proceed) {
+   $.ajax({
+       url: "./dellete.php",
+       type: "POST",
+       data: {
+         folder: fayl
+       },
+       dataType: "JSON",
+       beforeSend: function() {
+          $('textarea#adsafadsfasd').text("");
+       },
+       success: function(a) {
+           if (a.success) {
+              //$(location).attr('href', window.location.href);
+               window.location.reload(true)
+           }else{
+              alert(a.error);
+              window.location.reload(true)
+             }
+       }
+   })
+}
+}
+
 function renamefolder(fayl) {
    var proceed = confirm("Are you sure you want to delete this "+fayl+" file?");
    if (proceed) {
