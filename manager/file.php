@@ -11,56 +11,69 @@
  * Johncms Profile Link: https://johncms.com/profile/?user=38217
  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
- */
-require 'classes/yadro.php'; 
+*/
+require 'classes/yadro.php';
 if (isset($_POST['faylyoli'])) {
     $faylyoli = $_POST['faylyoli'];
-    $file = file_get_contents($faylyoli); 
+    $file = file_get_contents($faylyoli);
     $faylturi = pathinfo($faylyoli);
     if ($faylturi['extension'] == 'zip') {
         $falext = 'zip';
-    }elseif ($faylturi['extension'] == 'ico') {
+    } elseif ($faylturi['extension'] == 'ico') {
         $falext = 'ico';
-    }elseif ($faylturi['extension'] == 'jpg') {
+    } elseif ($faylturi['extension'] == 'jpg') {
         $falext = 'jpg';
-    }elseif ($faylturi['extension'] == 'png') {
+    } elseif ($faylturi['extension'] == 'png') {
         $falext = 'png';
-    }elseif ($faylturi['extension'] == 'gif') {
+    } elseif ($faylturi['extension'] == 'gif') {
         $falext = 'gif';
     }
     if (isset($falext)) {
-    echo json_encode(array('boshqacha' => 'boshqacha', 'fayl_yoli' => $faylyoli));
-    die;
+        echo json_encode(array('boshqacha' => 'boshqacha', 'fayl_yoli' => $faylyoli));
+        die;
     }
     if ($faylturi['extension'] == 'html') {
         $falext = 'html';
-    }elseif ($faylturi['extension'] == 'css') {
+    } elseif ($faylturi['extension'] == 'css') {
         $falext = 'css';
-    }elseif ($faylturi['extension'] == 'js') {
+    } elseif ($faylturi['extension'] == 'js') {
         $falext = 'javascript';
-    }elseif ($faylturi['extension'] == 'json') {
+    } elseif ($faylturi['extension'] == 'json') {
         $falext = 'json';
-    }elseif ($faylturi['extension'] == 'sass') {
+    } elseif ($faylturi['extension'] == 'sass') {
         $falext = 'sass';
-    }elseif ($faylturi['extension'] == 'xml') {
+    } elseif ($faylturi['extension'] == 'xml') {
         $falext = 'xml';
-    }elseif ($faylturi['extension'] == 'php') {
+    } elseif ($faylturi['extension'] == 'php') {
         $falext = 'php';
-    }elseif ($faylturi['extension'] == 'phtml') {
+    } elseif ($faylturi['extension'] == 'phtml') {
         $falext = 'php';
-    }else{
+    } else {
         $falext = 'text';
     }
-    echo json_encode(array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi'=> $falext));
+    echo json_encode(array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi' => $falext));
 }
 if (isset($_POST['save'])) {
     if (DEMO_VERSION === true) {
-        echo json_encode(array('error'=> DEMO));
+        echo json_encode(array('error' => DEMO));
         die;
     }
     $fayl_yoli = $_POST['fayl_yoli'];
     $contents = $_POST['contents'];
     @file_put_contents($fayl_yoli, $contents);
-
-echo 'saqlandi';
+    echo 'saqlandi';
+}
+if (isset($_POST['backup'])) {
+    if (DEMO_VERSION === true) {
+        echo json_encode(array('error' => DEMO));
+        die;
+    }
+    $fayl_yoli = $_POST['fayl_yoli'];
+    $faylturi = pathinfo($fayl_yoli);
+    $contents = $_POST['contents'];
+    $yangifayl = $faylturi['dirname'] . '/' . date("G-i-s_d-m-y") . '-' . $faylturi['filename'] . '.' . $faylturi['extension'];
+    $fp = fopen($yangifayl, 'wb');
+    fwrite($fp, $contents);
+    fclose($fp);
+    echo json_encode(array('success' => 'success'));
 }

@@ -11,36 +11,30 @@
  * Johncms Profile Link: https://johncms.com/profile/?user=38217
  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
- */
+*/
 require 'classes/yadro.php';
-
 if (DEMO_VERSION === true) {
-    echo json_encode(array('error'=> DEMO));
+    echo json_encode(array('error' => DEMO));
     die;
 }
-
-
 $newname = $_POST['newname'];
-
 if (isset($_POST['oldname'])) {
     $oldname = $_POST['oldname'];
-    if(is_dir($oldname)){
-    rename($oldname, $newname);
-    echo json_encode(array('success' => 'success'));
-}else {
-    echo json_encode(array('error' => 'Bunday nomdagi papka yo`q'));
+    if (is_dir($oldname)) {
+        rename($oldname, $newname);
+        echo json_encode(array('success' => 'success'));
+    } else {
+        echo json_encode(array('error' => 'Bunday nomdagi papka yo`q'));
+    }
+    die;
 }
-die;
-}
-
 $oldfilename = $_POST['oldfilename'];
 if (isset($oldfilename)) {
     if (file_exists($oldfilename)) {
-    rename($oldfilename, $newname);
-    echo json_encode(array('success' => 'success'));
-    }else {
-    echo json_encode(array('error' => 'Bunday nomdagi fayl yo`q'));
+        rename($oldfilename, $newname);
+        echo json_encode(array('success' => 'success'));
+    } else {
+        echo json_encode(array('error' => 'Bunday nomdagi fayl yo`q'));
     }
 }
-
 ?>

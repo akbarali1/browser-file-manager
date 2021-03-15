@@ -2,19 +2,19 @@
 <!DOCTYPE html>
 <!--
   /*
- * Fayl menjr Akbarali tomonidan yozildi.
- * Yozilgan sana: 15-mart 2021 yil
- * E-mail: Akbarali@uzhackersw.uz
- * Telegram: @kbarali
- * Those who want to sponsor: Webmoney WMR: R853215959425, Webmoney WMZ: Z401474330355, Webmoney WMY: Y194307290426
- * If you want to sponsor and do not have a Webmoney wallet, write to my e-mail or Telegram
- * Github repository: https://github.com/akbarali1/file-menjr
- * Johncms theme link: https://johncms.com/forum/?type=topic&id=12302
- * Johncms Profile Link: https://johncms.com/profile/?user=38217
- * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
- * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
- */
- -->
+  * Fayl menjr Akbarali tomonidan yozildi.
+  * Yozilgan sana: 15-mart 2021 yil
+  * E-mail: Akbarali@uzhackersw.uz
+  * Telegram: @kbarali
+  * Those who want to sponsor: Webmoney WMR: R853215959425, Webmoney WMZ: Z401474330355, Webmoney WMY: Y194307290426
+  * If you want to sponsor and do not have a Webmoney wallet, write to my e-mail or Telegram
+  * Github repository: https://github.com/akbarali1/file-menjr
+  * Johncms theme link: https://johncms.com/forum/?type=topic&id=12302
+  * Johncms Profile Link: https://johncms.com/profile/?user=38217
+  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
+  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
+  */
+  -->
 <html>
   <head lang="en">
     <meta charset="UTF-8">
@@ -30,21 +30,22 @@
     <script src="./assets/js/hotkeys.js"></script>
   </head>
   <body>
-  <style type="text/css" media="screen"> .ace_editor { border: 1px solid lightgray; margin: auto; height: 200px; width: 80%; } .scrollmargin { height: 80px; text-align: center; } img:hover { background: wheat; cursor: pointer; }  </style>
-  <div class="outer-div" style=" display: none; ">
-    <div class="inner-div">
-      <div style="float: left;width: 5%;"> 
-    <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file();" style="display:block;color: black;padding: 20px;max-width: 100%;width: 60%;">
-    <img src="./assets/icons/svg/exit.svg" alt="" onclick="aceexit();" style="display:block;color: black;padding: 20px;max-width: 100%;width: 60%;">
-    <img src="./assets/icons/svg/backup.svg" alt="" style="display:block;color: black;padding: 20px;max-width: 100%;width: 60%;">
-    <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;color: black;padding: 20px;max-width: 100%;width: 60%;">
-    <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" style="display:none;color: black;padding: 20px;max-width: 100%;width: 60%;">
+    <style type="text/css" media="screen"> .ace_editor { border: 1px solid lightgray; margin: auto; height: 200px; width: 80%; } .scrollmargin { height: 80px; text-align: center; } img:hover { background: wheat; cursor: pointer; }  </style>
+    <div class="outer-div" style=" display: none; ">
+      <div class="inner-div">
+        <div class="savebackupedix"> 
+          <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file();" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+          <img src="./assets/icons/svg/exit.svg" alt="" onclick="aceexit();" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+          <img src="./assets/icons/svg/backup.svg" alt="" onclick="makeBackup();"style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+          <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
+          <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" 
+            style="display:block;padding: 15px;max-width: 100%;width: 90%;">
         </div>
         <textarea  name="editor" id="adsafadsfasd" style="width: 100%; height: 100%;">salom salom</textarea>
-      <pre id="editor" style="width: 94.8%; height: 99.7%"></pre>
-      <input type="hidden" id="fayl_yoli">
+        <pre id="editor" style="width: 95%; height: 99.7%" class="acepre"></pre>
+        <input type="hidden" id="fayl_yoli">
+      </div>
     </div>
-</div>
     <div class="filemanager">
       <div class="search">
         <input type="search" placeholder="Find a file.." />
@@ -57,8 +58,8 @@
       </div>
     </div>
     <footer>
-    <img src="./assets/icons/svg/add-file.svg" alt="new file" onclick="newfile();" title="new file" style="width: 40px;margin: auto;padding: 10px;">
-    <img src="./assets/icons/svg/new-folder.svg" alt="new file" onclick="newfolder();" title="new folder" style="width: 40px;margin: auto;padding: 10px;">
+      <img src="./assets/icons/svg/add-file.svg" alt="new file" onclick="newfile();" title="new file" style="width: 40px;margin: auto;padding: 10px;">
+      <img src="./assets/icons/svg/new-folder.svg" alt="new file" onclick="newfolder();" title="new folder" style="width: 40px;margin: auto;padding: 10px;">
     </footer>
     <script src="assets/js/script.js"></script>
     <input type="hidden" id="foldername">

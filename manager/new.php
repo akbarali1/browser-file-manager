@@ -11,38 +11,34 @@
  * Johncms Profile Link: https://johncms.com/profile/?user=38217
  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
- */
-require 'classes/yadro.php'; 
+*/
+require 'classes/yadro.php';
 if (DEMO_VERSION === true) {
-  echo json_encode(array('error'=> DEMO));
-  die;
+    echo json_encode(array('error' => DEMO));
+    die;
 }
-
 if (isset($_POST['fayladd'])) {
-$fayladd = $_POST['fayladd'];
-$foldername = $_POST['foldername'];
-$faylyoli = $foldername."/".$fayladd;
-
-if (!file_exists($faylyoli)) {
-    $fp = fopen($faylyoli, 'wb');
-    fwrite($fp,"Akbarali");
-    fclose($fp);
-    $filetext = file_get_contents($faylyoli);
-    echo json_encode(array('success' => $filetext, 'faylyoli' => $faylyoli));
-  }else{
-    echo json_encode(array('error'=> 'There is a file with this name'));
-  }
-  }
-
+    $fayladd = $_POST['fayladd'];
+    $foldername = $_POST['foldername'];
+    $faylyoli = $foldername . "/" . $fayladd;
+    if (!file_exists($faylyoli)) {
+        $fp = fopen($faylyoli, 'wb');
+        fwrite($fp, "Akbarali");
+        fclose($fp);
+        $filetext = file_get_contents($faylyoli);
+        echo json_encode(array('success' => $filetext, 'faylyoli' => $faylyoli));
+    } else {
+        echo json_encode(array('error' => 'There is a file with this name'));
+    }
+}
 if (isset($_POST['folder'])) {
-  $foldernamenew = $_POST['folder'];
-  $foldername = $_POST['foldername'];
-  $papkayoli =$foldername."/".$foldernamenew;
-
-if(!is_dir($papkayoli)){
-			mkdir($papkayoli, 0755);
-    echo json_encode(array('success' => 'The folder was created successfully'));
-		}else {
-    echo json_encode(array('error' => 'There is a folder with this name'));
+    $foldernamenew = $_POST['folder'];
+    $foldername = $_POST['foldername'];
+    $papkayoli = $foldername . "/" . $foldernamenew;
+    if (!is_dir($papkayoli)) {
+        mkdir($papkayoli, 0755);
+        echo json_encode(array('success' => 'The folder was created successfully'));
+    } else {
+        echo json_encode(array('error' => 'There is a folder with this name'));
     }
 }

@@ -546,7 +546,14 @@ footer #tzine-actions iframe{
 }
 
 @media (max-width: 1024px) {
-	#bsaHolder, footer{ display:none;}
+
+	.savebackupedix{
+		display: -webkit-inline-box;
+	}
+	.acepre{
+		width: 99%; 
+		height: 99%
+	}
 }
 .outer-div {
     position: absolute;
@@ -557,11 +564,20 @@ footer #tzine-actions iframe{
     z-index: 13;
 	display: flex;
     height: 98%;
-    padding: 28px;
+    padding-top: 10px;
 }
 
 .inner-div {
     margin: 0 auto;
     width: 100%;
     background-color: #838080;
+}
+
+.savebackupedix{
+	float: left;
+	width: 40px;
+}
+.acepre{
+	width: 95%; 
+	height: 99.7%
 }
