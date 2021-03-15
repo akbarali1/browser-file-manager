@@ -42,6 +42,7 @@ $fl = $_POST['fayl'];
 if (isset($fl)) {
     unlink($fl);
     echo json_encode(array('success' => 'success'));
+    die;
 }
 
 $folder = $_POST['folder'];

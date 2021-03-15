@@ -17,9 +17,9 @@ require 'classes/yadro.php';
 if (isset($_POST['fayladd'])) {
 $fayladd = $_POST['fayladd'];
 $foldername = $_POST['foldername'];
-$faylyoli .=$foldername."/".$fayladd;
+$faylyoli = $foldername."/".$fayladd;
 
-if (!file_exists($fayladfaylyolid)) {
+if (!file_exists($faylyoli)) {
     $fp = fopen($faylyoli, 'wb');
     fwrite($fp,"Akbarali");
     fclose($fp);

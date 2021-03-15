@@ -1,4 +1,5 @@
-<?php require 'classes/yadro.php';
+<?php
+ require 'classes/yadro.php';
 /*
  * Fayl menjr Akbarali tomonidan yozildi.
  * Yozilgan sana: 15-mart 2021 yil
@@ -13,15 +14,16 @@
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
  */
 $newname = $_POST['newname'];
-$oldname = $_POST['oldname'];
 
-if (isset($oldname)) {
-if(is_dir($oldname)){
+if (isset($_POST['oldname'])) {
+    $oldname = $_POST['oldname'];
+    if(is_dir($oldname)){
     rename($oldname, $newname);
     echo json_encode(array('success' => 'success'));
 }else {
     echo json_encode(array('error' => 'Bunday nomdagi papka yo`q'));
 }
+die;
 }
 
 $oldfilename = $_POST['oldfilename'];
