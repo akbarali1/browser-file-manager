@@ -61,7 +61,7 @@ if (isset($_POST['save'])) {
     $fayl_yoli = $_POST['fayl_yoli'];
     $contents = $_POST['contents'];
     @file_put_contents($fayl_yoli, $contents);
-    echo 'saqlandi';
+    echo json_encode(array('success' => 'success'));
 }
 if (isset($_POST['backup'])) {
     if (DEMO_VERSION === true) {
