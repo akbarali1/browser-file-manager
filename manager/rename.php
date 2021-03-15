@@ -1,5 +1,4 @@
 <?php
- require 'classes/yadro.php';
 /*
  * Fayl menjr Akbarali tomonidan yozildi.
  * Yozilgan sana: 15-mart 2021 yil
@@ -13,6 +12,14 @@
  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
  */
+require 'classes/yadro.php';
+
+if (DEMO_VERSION === true) {
+    echo json_encode(array('error'=> DEMO));
+    die;
+}
+
+
 $newname = $_POST['newname'];
 
 if (isset($_POST['oldname'])) {

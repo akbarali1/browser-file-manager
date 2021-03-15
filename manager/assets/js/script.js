@@ -581,7 +581,7 @@ function renamefile(oldname) {
             window.location.reload(true)
            }else{
               alert(a.error);
-           // window.location.reload(true)
+           window.location.reload(true)
            }
        }
    })
@@ -607,6 +607,9 @@ function newfile() {
         success: function(a) {
             if (a.success) {
                 open_ace(a.faylyoli);
+            }else{
+               alert(a.error);
+            window.location.reload(true)
             }
         }
     })

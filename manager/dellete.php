@@ -13,6 +13,10 @@
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
 */
 require 'classes/yadro.php';
+if (DEMO_VERSION === true) {
+    echo json_encode(array('error'=> DEMO));
+    die;
+}
 function deleteDirectory($dir) {
     if (!file_exists($dir)) {
         return true;

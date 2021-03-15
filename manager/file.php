@@ -54,10 +54,12 @@ if (isset($_POST['faylyoli'])) {
     echo json_encode(array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi'=> $falext));
 }
 if (isset($_POST['save'])) {
-
+    if (DEMO_VERSION === true) {
+        echo json_encode(array('error'=> DEMO));
+        die;
+    }
     $fayl_yoli = $_POST['fayl_yoli'];
     $contents = $_POST['contents'];
-
     @file_put_contents($fayl_yoli, $contents);
 
 echo 'saqlandi';
