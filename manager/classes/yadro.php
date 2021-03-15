@@ -11,9 +11,11 @@ if (empty($_SESSION['loginmanager'])) {
         exit;
     }
 }
+if (isset($_SESSION['loginmanager'])) {
 if ($_SESSION['loginmanager'] != PASSWORD) {
     if (!$loginpage) {
         header('Location: ./login.php');
         exit;
     }
+}
 }
