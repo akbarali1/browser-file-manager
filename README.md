@@ -20,20 +20,20 @@ Agarda siz demo versiyani ishga tushurmoqchi bo'lsangiz `manager/classes/yadro.p
 Hozircha qilingan  o'zgarishlar 
 
 1. Jami fayllar va papkalarni ko'rish
-2. Faylni kodlarini ko'rish taxrirlash qayta nomlash o'chirish
-3. Papkani ko'rish taxrirlash qayta nomlash o'chirish
+2. Faylni kodlarini ko'rish taxrirlash qayta nomlash o'chirish yangi fayl ochish
+3. Papkani ko'rish taxrirlash qayta nomlash o'chirish yangi papka ochish
 
 File menjrda kodni taxrirlab saqlaganingizda sahifa yangilanmay kodingizni saqlaydi va yana kod yozaverasiz (bunda kodingizni ctrl+z qilib asil holatigacha qaytarish mumkun.)
 
-Undan tashqati eski KOd yozishni qiziqarli va tezor kod yozishga oon bo`lishi uhun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
+Undan tashqati eski KOd yozishni qiziqarli va tezor kod yozishga oon bo`lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 
-[Ace Editor](https://ace.c9.io/) da ctrl+alt+h qilinsa barcha ezkor klavishlarni ko`rsatadi.
+[Ace Editor](https://ace.c9.io/) da `ctrl+alt+h` qilinsa barcha tezkor klavishlarni ko`rsatadi.
+`ctrl+,` da esa [Ace Editor](https://ace.c9.io/) ning yoqilgan barcha funsiyalarini ko'rish o'zgartirish mumkun. (O'zgarishlar Kod editor yopilgandan so'ng o'chib ketadi)
 
 # Eng tezkor klavishlar
-
 `Ctrl+S` va `SHift+F12` faylni saqlash
-
-Ctrl+b faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi) (Hozirda ushbu fuksiya ishlab chiqilmoqda)
+`Esc` ochilgan kod editorni yopadi
+`Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
 
 # Tezkor klavishlar
 # Кодларни яшириш

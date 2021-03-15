@@ -39,7 +39,7 @@
           <img src="./assets/icons/svg/backup.svg" alt="" onclick="makeBackup();"style="display:block;padding: 15px;max-width: 100%;width: 90%;">
           <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
           <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" 
-            style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+            style="display:none;padding: 15px;max-width: 100%;width: 90%;">
         </div>
         <textarea  name="editor" id="adsafadsfasd" style="width: 100%; height: 100%;">salom salom</textarea>
         <pre id="editor" style="width: 95%; height: 99.7%" class="acepre"></pre>
