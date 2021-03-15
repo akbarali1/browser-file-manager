@@ -1,0 +1,23 @@
+# Common ignores
+/.idea
+/config
+/assets
+/config
+/data
+/modules
+/system
+/themes
+/upload
+/.htaccess
+/.htaccess
+/.phpstorm.meta.php
+/composer.json
+/composer.lock
+/index.php
+/dist
+/distributive
+/node_modules
+/webpack.*.js
+/robots.txt
+/package.json
+/.github
