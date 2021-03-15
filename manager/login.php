@@ -36,15 +36,17 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <h1 class="text-center mb-4"></h1>
               <?php
-                //  print_r($_SESSION['loginmanager']);
                 if (!empty($_SESSION['loginmanager'])) {
+                if ($_SESSION['loginmanager'] == PASSWORD) {
                   header('Location: index.php');
+                  die;
+                }
                 }
                   if (isset($_POST['password'])) {
-                   if (md5(md5($_POST['password'])) != '7b00f8fc9bd0b49025a4c5e09b8ebed3') {
-                       die("parol xato");
+                   if (md5(md5($_POST['password'])) != PASSWORD) {
+                       die("Password Error");
                    }else{
-                       $_SESSION['loginmanager'] = '7b00f8fc9bd0b49025a4c5e09b8ebed3';
+                       $_SESSION['loginmanager'] = PASSWORD;
                      header('Location: index.php');
                       die;
                    }
