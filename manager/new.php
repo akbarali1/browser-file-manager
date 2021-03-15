@@ -33,7 +33,7 @@ if (!file_exists($faylyoli)) {
 if (isset($_POST['folder'])) {
   $foldernamenew = $_POST['folder'];
   $foldername = $_POST['foldername'];
-  $papkayoli .=$foldername."/".$foldernamenew;
+  $papkayoli =$foldername."/".$foldernamenew;
 
 if(!is_dir($papkayoli)){
 			mkdir($papkayoli, 0755);
