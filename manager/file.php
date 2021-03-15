@@ -28,7 +28,7 @@ if (isset($_POST['faylyoli'])) {
     }elseif ($faylturi['extension'] == 'gif') {
         $falext = 'gif';
     }
-    if ($falext) {
+    if (isset($falext)) {
     echo json_encode(array('boshqacha' => 'boshqacha', 'fayl_yoli' => $faylyoli));
     die;
     }
