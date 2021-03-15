@@ -11,47 +11,42 @@
  * Johncms Profile Link: https://johncms.com/profile/?user=38217
  * Uzfor theme link: https://uzfor.uz/view.php?id=90892&page=1
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
- */
-require 'classes/yadro.php'; 
-
+*/
+require 'classes/yadro.php';
 function deleteDirectory($dir) {
     if (!file_exists($dir)) {
         return true;
     }
-
     if (!is_dir($dir)) {
         return unlink($dir);
     }
-
     foreach (scandir($dir) as $item) {
         if ($item == '.' || $item == '..') {
             continue;
         }
-
         if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
             return false;
         }
-
     }
-
     return rmdir($dir);
 }
-
-
-$fl = $_POST['fayl'];
-if (isset($fl)) {
-    unlink($fl);
-    echo json_encode(array('success' => 'success'));
+if (isset($_POST['fayl'])) {
+    $fl = $_POST['fayl'];
+    if (file_exists($fl)) {
+        unlink($fl);
+        echo json_encode(array('success' => 'success'));
+    } else {
+        echo json_encode(array('error' => 'Bunday fayl yo`q'));
+    }
     die;
 }
-
 $folder = $_POST['folder'];
 if (isset($folder)) {
-    if(is_dir($folder)){
-    array_map('unlink', glob("$folder/*.*"));
-    deleteDirectory($folder);
-    echo json_encode(array('success' => 'success'));
-}else {
-    echo json_encode(array('error' => 'Bunday nomda papka mavjud emas'));
-}
+    if (is_dir($folder)) {
+        array_map('unlink', glob("$folder/*.*"));
+        deleteDirectory($folder);
+        echo json_encode(array('success' => 'success'));
+    } else {
+        echo json_encode(array('error' => 'Bunday nomda papka mavjud emas'));
+    }
 }
