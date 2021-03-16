@@ -24,7 +24,6 @@ function scan($dir) {
         foreach (scandir($dir) as $f) {
             if (!$f || $f[0] == '.') {
                 continue; // Ignore hidden files
-                
             }
             if (is_dir($dir . '/' . $f)) {
                 // The path is a folder

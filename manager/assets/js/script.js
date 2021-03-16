@@ -420,6 +420,22 @@ shortcut.add("Shift+f12", function() {
   'disable_in_input': false,
   'target': document
 });
+shortcut.add("Shift+f", function() {
+  newfile();
+}, {
+  'type': 'keydown',
+  'propagate': false,
+  'disable_in_input': false,
+  'target': document
+});
+shortcut.add("Shift+p", function() {
+  newfolder();
+}, {
+  'type': 'keydown',
+  'propagate': false,
+  'disable_in_input': false,
+  'target': document
+});
 
 shortcut.add("Ctrl+b", function() {
   makeBackup();
@@ -582,7 +598,7 @@ function newfile() {
   var filename = prompt("Enter the file name:", "newfile.php");
   var foldername = $("#foldername").val();
   if (filename == null || filename == "") {
-    alert("The file was not named")
+    console.log("The file was not named")
   } else {
     $.ajax({
       url: "./new.php",
@@ -609,7 +625,7 @@ function newfolder() {
   var newfoldername = prompt("Enter the folder name:", "newfolder");
   var foldername = $("#foldername").val();
   if (newfoldername == null || newfoldername == "") {
-    alert("The folder was not named")
+    console.log("The folder was not named")
   } else {
     $.ajax({
       url: "./new.php",

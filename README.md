@@ -23,17 +23,19 @@ Hozircha qilingan  o'zgarishlar
 2. Faylni kodlarini ko'rish taxrirlash qayta nomlash o'chirish yangi fayl ochish
 3. Papkani ko'rish taxrirlash qayta nomlash o'chirish yangi papka ochish
 
-File menjrda kodni taxrirlab saqlaganingizda sahifa yangilanmay kodingizni saqlaydi va yana kod yozaverasiz (bunda kodingizni ctrl+z qilib asil holatigacha qaytarish mumkun.)
+Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 
-Undan tashqati eski KOd yozishni qiziqarli va tezor kod yozishga oon bo`lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
+File menjrda kodni taxrirlab `ctrl+s` yoki `shift+f12` qilib saqlaganingizda sahifa yangilanmay kodingizni saqlaydi va yana kod yozaverasiz (bunda kodingizni `ctrl+z` qilib asil holatigacha qaytarish mumkun.)
 
-[Ace Editor](https://ace.c9.io/) da `ctrl+alt+h` qilinsa barcha tezkor klavishlarni ko`rsatadi.
-`ctrl+,` da esa [Ace Editor](https://ace.c9.io/) ning yoqilgan barcha funsiyalarini ko'rish o'zgartirish mumkun. (O'zgarishlar Kod editor yopilgandan so'ng o'chib ketadi)
+[Ace Editor](https://ace.c9.io/) da `ctrl+alt+h` qilinsa barcha tezkor klavishlarni ko'rsatadi.
+`ctrl+,` da esa [Ace Editor](https://ace.c9.io/) ning yoqilgan barcha funsiyalarini ko'rish o'zgartirish mumkun. (O'zgarishlar Kod editor yopilgandan so'ng o'chib ketadi "Hozircha")
 
 # Eng tezkor klavishlar
-`Ctrl+S` va `SHift+F12` faylni saqlash
-`Esc` ochilgan kod editorni yopadi
-`Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
+1. `Ctrl+S` va `SHift+F12` faylni saqlash
+2. `Esc` ochilgan kod editorni yopadi
+3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
+4. `shift+f` yangi fayl ochadi (nom berish uchun popup chiqari)
+5. `shift+p` yangi papka ochadi (nom berish uchun popup chiqari)
 
 # Tezkor klavishlar
 # Кодларни яшириш
@@ -49,7 +51,6 @@ Alt+F2				Tepadagini teskarisi yashirilganni ochadi
 alt+0				hamma kodlarni yashiradi
 
 alt+shift+0			tepadagini teskarisi yashirilganni ochadi
-
 
 
 # Сўзларни белгилаш
@@ -75,11 +76,9 @@ ctrl+alt+k			belgilandan so'zni koddagi hammasini belgilaydi
 ctrl+shift+l			kursor turgan qarotni hammasini belgilaydi agarda yana bosilsa o'sha qatordan pastiga yana belgilab tushib ketadi
 
 
-
 # Коментарияга олиш
 
 ctrl+shift+/			belgilangan kodni komentariyaga oladi
-
 
 
 # Кодларни ўчрииш
@@ -103,7 +102,6 @@ ctrl+shift+dellete		kursordan keyngi hammasini o'chiradi o'sha qatorni
 ctrl+shift+'			qandaydur nimadurni o'chiradi
 
 ctrl+shift+;			divning otasini o'chiradi
-
 
 
 # Курсор бўйича амаллар
@@ -133,11 +131,9 @@ alt+left			nimaligini to'liq tushunib yetmadim
 clt+left 			so'zlardan keyngisiga o'tkazadi
 
 
-
 # Нусха олиш ва ташлаш
 
 ctrl+shift+d 			o'sha qatordagi kodni pastgi qatorga kopy nusxasini tashlaydi
-
 
 
 # Сўзларни кидириш топиш ва алмаштириш
@@ -151,7 +147,6 @@ ctrl+h				matinni almashtirish menyusini ochadi so'zni belgilasa o'sha so'z sear
 ctrl+k				matnni belgilab bosilganda o'sha matnning boshqasini topib o'shanga o'tadi tepadan pastga
 
 ctrl+shift+k			tepadagini o'zi faqat pastdan tepaga
-
 
 
 # Таблар бўйича ишлар таб олинга силжитиш кодни олдинга силжитиш
@@ -169,7 +164,6 @@ alt+shift+x			kursor turgan koddan bitta harfni tashlab oldingi harfni kursor ol
 ctrl+shift+a			Popup ochiladi va popupga so'zni yozsa o'sha belgilandan kodni o'sha popupga yozilgan divni ichiga kirgazadi
 
 
-
 # Тепадагиларнинг бирортасига кирмайдиган бошка турдагилар
 
 ctrl+,				sozlash menyusini ochadi
@@ -183,20 +177,10 @@ F1				qandaydur menyu ochiladi menimcha ko'p funksiyalarni qilsa bo'ladigan meny
 ctrl+alt+a			kodni hammasini tekish qiladi (hali to'liq tushunmadim)
 
 
-# kodni faqat o'zim uchun yozgan edim
-
-Boshida kodni faqat o'zim ishlatishim uchun yozgan edim. Keyn githubga ochiq holda joylashga qaror qildim. Shuning uchun bazi bir imoliv hatolar uchun oldindan uzur.
-
-
-
 # Yoqqan bo'lsa yulduzcha bosish esdan chiqamasin
-
-
 
 # Fayl mejr rasmlari
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/newfolder.png)
-
-
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/newfile.png)
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/login.png)
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/index.png)
@@ -204,6 +188,3 @@ Boshida kodni faqat o'zim ishlatishim uchun yozgan edim. Keyn githubga ochiq hol
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/fileeditor.png)
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/dellete.png)
 ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/rename.png)
-
-
-

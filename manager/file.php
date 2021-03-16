@@ -13,6 +13,7 @@
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
 */
 require 'classes/yadro.php';
+header('Content-type: application/json');
 if (isset($_POST['faylyoli'])) {
     $faylyoli = $_POST['faylyoli'];
     $file = file_get_contents($faylyoli);
@@ -54,6 +55,7 @@ if (isset($_POST['faylyoli'])) {
     echo json_encode(array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi' => $falext));
 }
 if (isset($_POST['save'])) {
+    if (!empty($_POST['contents'])) {
     if (DEMO_VERSION === true) {
         echo json_encode(array('error' => DEMO));
         die;
@@ -62,18 +64,25 @@ if (isset($_POST['save'])) {
     $contents = $_POST['contents'];
     @file_put_contents($fayl_yoli, $contents);
     echo json_encode(array('success' => 'success'));
+    }else {
+        echo json_encode(array('error' => 'Saqlash uchun fayl ochilmagan'));
+}
 }
 if (isset($_POST['backup'])) {
-    if (DEMO_VERSION === true) {
-        echo json_encode(array('error' => DEMO));
-        die;
+    if (!empty($_POST['contents'])) {
+        if (DEMO_VERSION === true) {
+            echo json_encode(array('error' => DEMO));
+            die;
+        }
+        $fayl_yoli = $_POST['fayl_yoli'];
+        $faylturi = pathinfo($fayl_yoli);
+        $contents = $_POST['contents'];
+        $yangifayl = $faylturi['dirname'] . '/' . date("G-i-s_d-m-y") . '-' . $faylturi['filename'] . '.' . $faylturi['extension'];
+        $fp = fopen($yangifayl, 'wb');
+        fwrite($fp, $contents);
+        fclose($fp);
+        echo json_encode(array('success' => 'success'));
+    }else {
+        echo json_encode(array('error' => 'Saqlash uchun fayl ochilmagan'));
     }
-    $fayl_yoli = $_POST['fayl_yoli'];
-    $faylturi = pathinfo($fayl_yoli);
-    $contents = $_POST['contents'];
-    $yangifayl = $faylturi['dirname'] . '/' . date("G-i-s_d-m-y") . '-' . $faylturi['filename'] . '.' . $faylturi['extension'];
-    $fp = fopen($yangifayl, 'wb');
-    fwrite($fp, $contents);
-    fclose($fp);
-    echo json_encode(array('success' => 'success'));
 }

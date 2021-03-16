@@ -13,6 +13,7 @@
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
 */
 require 'classes/yadro.php';
+header('Content-type: application/json');
 if (DEMO_VERSION === true) {
     echo json_encode(array('error' => DEMO));
     die;
