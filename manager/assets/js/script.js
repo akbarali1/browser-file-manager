@@ -720,3 +720,28 @@ function open_ace(faylyoli) {
     }
   });
 };
+
+
+function setCookie(name, value, timeout) {
+  if (timeout) {
+    var date = new Date();
+    date.setTime(date.getTime() + (timeout * 1000));
+    timeout = "; expires=" + date.toUTCString();
+  } else {
+    timeout = "";
+  }
+
+  document.cookie = name + "=" + encodeURIComponent(value) + timeout + "; path=/";
+}
+
+function getCookie(name) {
+  var cookies = document.cookie.split(';');
+
+  for (var i = 0; i < cookies.length; i++) {
+    if (cookies[i].trim().indexOf(name + "=") == 0) {
+      return decodeURIComponent(cookies[i].trim().substring(name.length + 1).trim());
+    }
+  }
+
+  return false;
+}

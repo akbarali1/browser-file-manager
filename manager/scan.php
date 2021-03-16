@@ -13,7 +13,7 @@
  * Uzfor Profile link: https://uzfor.uz/profile.php?user=87
 */
 require 'classes/yadro.php';
-$dir = "..";
+$dir = MAIN_DIR;
 // Run the recursive function
 $response = scan($dir);
 // This function scans the files folder recursively, and builds a large array
