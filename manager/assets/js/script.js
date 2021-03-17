@@ -285,6 +285,7 @@ $('#do-backup').on('click', function(evt) {
   makeBackup();
 });
 
+
 function save_file() {
   var contents = $('textarea#adsafadsfasd').text(),
     fayl_yoli = $("input#fayl_yoli").val();
@@ -404,17 +405,6 @@ function delletefolder(fayl) {
   }
 }
 
-function reloadPage() {
-  var page = window.location.href;
-  $.ajax({
-    url: page,
-    type: "GET",
-    success: function(data) {
-      $("#fayllar").html(data);
-    }
-  });
-}
-
 function renamefolder(oldname) {
   var filename = prompt("Enter the folder new name:", oldname);
   if (filename == null || filename == "") {
@@ -459,33 +449,6 @@ function renamefile(oldname) {
       beforeSend: function() {},
       success: function(a) {
         if (a.success) {
-          window.location.reload(true)
-        } else {
-          alert(a.message);
-          window.location.reload(true)
-        }
-      }
-    })
-  }
-}
-
-function newpassword() {
-  var newpassword = prompt("Enter the new password name:", "");
-  if (newpassword == null || newpassword == "") {
-    console.log("The password was not named")
-  } else {
-    $.ajax({
-      url: "./api.php",
-      type: "POST",
-      data: {
-        action: 'newpassword',
-        newpassword: newpassword
-      },
-      dataType: "JSON",
-      beforeSend: function() {},
-      success: function(a) {
-        if (a.success) {
-          alert(a.message);
           window.location.reload(true)
         } else {
           alert(a.message);
@@ -547,6 +510,34 @@ function newfolder() {
         } else {
           alert(a.message);
           window.location.reload(true);
+        }
+      }
+    })
+  }
+}
+
+
+function newpassword() {
+  var newpassword = prompt("Enter the new password name:", "");
+  if (newpassword == null || newpassword == "") {
+    console.log("The password was not named")
+  } else {
+    $.ajax({
+      url: "./api.php",
+      type: "POST",
+      data: {
+        action: 'newpassword',
+        newpassword: newpassword
+      },
+      dataType: "JSON",
+      beforeSend: function() {},
+      success: function(a) {
+        if (a.success) {
+          alert(a.message);
+          window.location.reload(true)
+        } else {
+          alert(a.message);
+          window.location.reload(true)
         }
       }
     })
