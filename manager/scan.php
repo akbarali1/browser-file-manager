@@ -31,6 +31,7 @@ function scan($dir) {
 					"name" => $f, 
 					"type" => "folder", 
 					"path" => $dir . '/' . $f, 
+                    "time" => date("d F Y H:i", filectime($dir . '/' . $f)),
 					"items" => scan($dir . '/' . $f) // Recursively get the contents of the folder
                 );
             } else {
@@ -39,6 +40,7 @@ function scan($dir) {
 					"name" => $f, 
 					"type" => "file", 
 					"path" => $dir . '/' . $f, 
+                    "time" => date("d F Y H:i", filectime($dir . '/' . $f)),
 					"size" => filesize($dir . '/' . $f) // Gets the size of this file
                 );
             }

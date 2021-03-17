@@ -214,7 +214,7 @@ $(function() {
           } else {
             itemsLength = 'Empty';
           }
-          var folder = $('<li class="folders"><div onclick="delletefolder(`' + f.path + '`);" style="font-size: 22px;float: right;padding: 5px;font-weight: 900;background: #999090;"><img src="./assets/icons/svg/delete.svg" alt="" style="width: 20px;"></div><div onclick="renamefolder(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;"><img src="./assets/icons/svg/rename.svg" alt="" style="width: 20px;"></div><a href="' + f.path + '" title="' + f.path + '" class="folders">' + icon + '<span class="name">' + name + '</span> <span class="details">' + itemsLength + '</span></a></li>');
+          var folder = $('<li class="folders"><div onclick="delletefolder(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;position: absolute;bottom: 0;"><img src="./assets/icons/svg/delete.svg" alt="" style="width: 20px;"></div><div onclick="renamefolder(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;position: absolute;top: 0;"><img src="./assets/icons/svg/rename.svg" alt="" style="width: 20px;"></div><a href="' + f.path + '" title="' + f.path + '" class="folders">' + icon + '<span class="name">' + name + '</span><img src="./assets/icons/svg/right-arrow.svg" class="rigtharrow"> <span class="details">' + itemsLength + '</span> <span class="details" style=" top: 68px; ">'+ f.time +'</span></a></li>');
           folder.appendTo(fileList);
         });
       }
@@ -231,7 +231,7 @@ $(function() {
 
           icon = '<span class="icon file f-' + fileType + '">.' + fileType + '</span>';
 
-          var file = $('<li class="files"><div onclick="renamefile(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;"><img src="./assets/icons/svg/rename.svg" alt="" style="width: 20px;"></div><div onclick="delletefile(`' + f.path + '`);" style="font-size: 22px;float: right;padding: 5px;font-weight: 900;background: #999090;"><img src="./assets/icons/svg/delete.svg" alt="" style="width: 20px;"></div><a class="files" href="' + f.path + '" onclick="open_ace(`' + f.path + '`);" title="' + f.path + '">' + icon + '<span class="name">' + name + '</span> <span class="details">' + fileSize + '</span></a></li>');
+          var file = $('<li class="files"><div onclick="renamefile(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;position: absolute;top: 0;"><img src="./assets/icons/svg/rename.svg" alt="" style="width: 20px;"></div><div onclick="delletefile(`' + f.path + '`);" style="font-size: 22px;float: left;padding: 5px;font-weight: 900;background: #999090;position: absolute;bottom: 0;"><img src="./assets/icons/svg/delete.svg" alt="" style="width: 20px;"></div><a class="files" onclick="open_ace(`' + f.path + '`);" title="' + f.path + '">' + icon + '<span class="name">' + name + '</span> <span class="details">' + fileSize + '</span><span class="details" style=" top: 68px; ">'+ f.time +'</span></a></li>');
           file.appendTo(fileList);
         });
       }
