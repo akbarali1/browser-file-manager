@@ -51,7 +51,7 @@
         <input type="search" placeholder="Find a file.." />
       </div>
       <div class="breadcrumbs"></div>
-      <ul class="data"></ul>
+      <ul class="data" id="fayllar"></ul>
       <div class="nothingfound">
         <div class="nofiles"></div>
         <span>No files here.</span>
@@ -60,6 +60,7 @@
     <footer>
       <img src="./assets/icons/svg/add-file.svg" alt="new file" onclick="newfile();" title="new file" style="width: 40px;margin: auto;padding: 10px;">
       <img src="./assets/icons/svg/new-folder.svg" alt="new file" onclick="newfolder();" title="new folder" style="width: 40px;margin: auto;padding: 10px;">
+      <img src="./assets/icons/svg/newpassword.svg" alt="new password" onclick="newpassword();" title="new password" style="width: 40px;margin: auto;padding: 10px;">
     </footer>
     <script src="assets/js/script.js"></script>
     <input type="hidden" id="foldername">

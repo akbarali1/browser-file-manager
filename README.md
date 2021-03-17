@@ -11,9 +11,9 @@ PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 5. Kirish uchun demo parol: `johncms`
 
 # Parolni yanglilash
-`manager/classes/yadro.php` dagi `define('PASSWORD', '7b00f8fc9bd0b49025a4c5e09b8ebed3');` ni o'zgartirasiz.
-Parol md5da ikki marta shifrlangan bo'lishi kerak `echo md5(md5('buparol'));` shaklida shifrlangan parolni qo'yasiz
+Tizimga kirganingizdan so'ng Ekanni o'ng tarafida turgan qulufni ustiga bosasiz yangi parolni kiritasiz va tamom.
 
+# Demo rejimda ishlatish
 Agarda siz demo versiyani ishga tushurmoqchi bo'lsangiz `manager/classes/yadro.php` dagi `define('DEMO_VERSION', false);` ni `define('DEMO_VERSION', true);` qilishingiz kerak
 
 # Qilingan ishlar
@@ -25,21 +25,22 @@ Hozircha qilingan  o'zgarishlar
 
 Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 
+# Eng tezkor klavishlar
+1. `Ctrl+S` va `SHift+F12` faylni saqlash
+2. `Esc` ochilgan kod editorni yopadi
+3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
+4. `shift+f` yangi fayl ochadi (nom berish uchun popup chiqadi)
+5. `shift+p` yangi papka ochadi (nom berish uchun popup chiqadi)
+6. `shift+n` yangi parolni o`rnatish (nom berish uchun popup chiqadi)
+7. `shift+w` ochilgan [Ace Editor](https://ace.c9.io/) ni yopadi
+
+# Kode yozivni muharrirda ishlovchi tezkor klavishlar
 File menjrda kodni taxrirlab `ctrl+s` yoki `shift+f12` qilib saqlaganingizda sahifa yangilanmay kodingizni saqlaydi va yana kod yozaverasiz (bunda kodingizni `ctrl+z` qilib asil holatigacha qaytarish mumkun.)
 
 [Ace Editor](https://ace.c9.io/) da `ctrl+alt+h` qilinsa barcha tezkor klavishlarni ko'rsatadi.
 `ctrl+,` da esa [Ace Editor](https://ace.c9.io/) ning yoqilgan barcha funsiyalarini ko'rish o'zgartirish mumkun. (O'zgarishlar Kod editor yopilgandan so'ng o'chib ketadi "Hozircha")
 
-# Eng tezkor klavishlar
-1. `Ctrl+S` va `SHift+F12` faylni saqlash
-2. `Esc` ochilgan kod editorni yopadi
-3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
-4. `shift+f` yangi fayl ochadi (nom berish uchun popup chiqari)
-5. `shift+p` yangi papka ochadi (nom berish uchun popup chiqari)
-
-# Tezkor klavishlar
 # Кодларни яшириш
-
 alt+l				kodni belgilab bosilsa o'sha kodni yashiradi
 
 alt+shift+l			tepadagini teskarisi yashirilgan kodni ko'rsatadi

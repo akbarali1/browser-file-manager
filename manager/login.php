@@ -36,26 +36,30 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <h1 class="text-center mb-4"></h1>
               <?php
-                if (!empty($_SESSION['loginmanager'])) {
-                if ($_SESSION['loginmanager'] == PASSWORD) {
-                  header('Location: index.php');
-                  die;
+                //Agarda birorkim buzmoqcchi bo`lsa sesia orqali aniqlab uni bloklaymiz
+                if (isset($_SESSION['manager_passwor_derror']) && count($_SESSION['manager_passwor_derror']) >= '3') {
+                      die("The system was blocked because the password was typed too many errors");
                 }
-                }
+                //Parol to`g`ri bo`lsa tizimga kirgazamiz bo`lmasa o`lim
                   if (isset($_POST['password'])) {
                    if (md5(md5($_POST['password'])) != PASSWORD) {
+                      $_SESSION['manager_passwor_derror'][] = '1';
                        die("Password Error");
                    }else{
-                       $_SESSION['loginmanager'] = PASSWORD;
-                     header('Location: index.php');
+                     if (md5(md5($_POST['password'])) === PASSWORD) {
+                      $_SESSION['loginmanager'] = md5(md5($_POST['password']));
+                      header('Location: index.php');
                       die;
+                     }else {
+                      $_SESSION['manager_passwor_derror'][] = '1';
+                       die("Password Error");
+                     }
                    }
-                   die;
                   }
                   ?>
               <form method="POST">
                 <div class="form-group mb-3">
-                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" required autocomplete="on" autofocus>
                 </div>
                 <input type="submit" value="Login" class="btn btn-dark btn-block">
               </form>

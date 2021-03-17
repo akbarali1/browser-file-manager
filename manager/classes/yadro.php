@@ -14,20 +14,28 @@
 */
 ob_start();
 session_start();
-define('V', '0.5 | Akbarali');
+define('V', '0.8 | Akbarali');
 define('DEMO_VERSION', false);
 define('PASSWORD', '7b00f8fc9bd0b49025a4c5e09b8ebed3');
-define('DEMO', 'This action cannot be performed in the demo version');
+define('DEMO_TEXT_ERROR', 'This action cannot be performed in the demo version');
 define('MAIN_DIR', '..');
 define('ACCESS_IP', '');
-
-//46b5639b77d20cec83527b46611b1758
 //7b00f8fc9bd0b49025a4c5e09b8ebed3 johncms
 
-if (empty(ACCESS_IP) === false && ACCESS_IP != $_SERVER['REMOTE_ADDR']) {
-	die('Your IP address is not allowed to access this page.');
+function getClientIP(){       
+    if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)){
+           return  $_SERVER["HTTP_X_FORWARDED_FOR"];  
+    }else if (array_key_exists('REMOTE_ADDR', $_SERVER)) { 
+           return $_SERVER["REMOTE_ADDR"]; 
+    }else if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
+           return $_SERVER["HTTP_CLIENT_IP"]; 
+    } 
+    return '';
 }
 
+if (empty(ACCESS_IP) === false && ACCESS_IP != getClientIP()) {
+	die('Your IP address is not allowed to access this page.');
+}
 
 if (empty($_SESSION['loginmanager'])) {
     if (!$loginpage) {
@@ -35,11 +43,61 @@ if (empty($_SESSION['loginmanager'])) {
         exit;
     }
 }
+
 if (isset($_SESSION['loginmanager'])) {
     if ($_SESSION['loginmanager'] != PASSWORD) {
         if (!$loginpage) {
             header('Location: ./login.php');
             exit;
         }
+    }
+}
+
+function json_error($message, $params = []){
+	return json_encode(array_merge([
+		'error' => true,
+		'message' => $message,
+	], $params), JSON_UNESCAPED_UNICODE);
+}
+
+function json_success($message, $params = []){
+	return json_encode(array_merge([
+		'success' => true,
+		'message' => $message,
+	], $params), JSON_UNESCAPED_UNICODE);
+}
+
+function deleteDirectory($dir) {
+    if (!file_exists($dir)) {
+        return true;
+    }
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+    }
+    return rmdir($dir);
+}
+
+function passwordchange($password){
+    if (isset($password) && empty($password) === false) {
+        $contents = file(__FILE__);
+        foreach ($contents as $key => $line) {
+            if (strpos($line, 'define(\'PASSWORD\'') !== false) {
+                $contents[$key] = "define('PASSWORD', '" . md5(md5($password)) . "');\n";
+				break;
+            }
+        }
+        if (is_writable(__FILE__) === false) {
+            die(json_error('File is not writable'));
+        }
+		file_put_contents(__FILE__, implode($contents));
+        return json_success('Password changed successfully');
     }
 }
