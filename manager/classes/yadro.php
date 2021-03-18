@@ -14,7 +14,7 @@
 */
 ob_start();
 session_start();
-define('V', '0.8 | Akbarali');
+define('V', '1.2 | Akbarali');
 define('DEMO_VERSION', false);
 define('PASSWORD', '7b00f8fc9bd0b49025a4c5e09b8ebed3');
 define('DEMO_TEXT_ERROR', 'This action cannot be performed in the demo version');

@@ -1,11 +1,10 @@
 <?php require 'classes/yadro.php';
   define('DS', '/');
-  define('MAIN_DIR', '../');
   define('SHOW_PHP_SELF', false);
   define('SHOW_HIDDEN_FILES', false);
   define('PATTERN_FILES', '/^[A-Za-z0-9-_.\/]*\.(txt|php|htm|phtml|html|js|css|tpl|md|xml|json)$/i'); // empty means no pattern
   define('PATTERN_DIRECTORIES', '/^((?!backup).)*$/i'); // empty means no pattern
-  
+
   function files($dir, $first = true) {
       $data = '';
       if ($first === true) {
@@ -34,7 +33,7 @@
       }
       return $data;
   }
-  
+if (isset($_POST['action'])) {
   switch ($_POST['action']) {
       case 'reload':
           echo json_success('OK', [
@@ -42,8 +41,9 @@
           ]);
       	exit;
           break;
-  
+
   }
+}
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,12 +81,12 @@
         </div>
         <div class="col-9">
           <div class="card" style="background: cadetblue;">
-            <div class="savebackupedix" style=" display: -webkit-inline-box; "> 
+            <div class="savebackupedix" style=" display: -webkit-inline-box; ">
               <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file();" style="display:block;padding: 15px;max-width: 100%;width: 60px;">
               <img src="./assets/icons/svg/exit.svg" alt="" onclick="aceexit();" style="display:block;padding: 15px;max-width: 100%;width: 60px;">
               <img src="./assets/icons/svg/backup.svg" alt="" onclick="makeBackup();"style="display:block;padding: 15px;max-width: 100%;width: 60px;">
               <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;padding: 15px;max-width: 100%;width: 60px;">
-              <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" 
+              <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message"
                 style="display:none;padding: 15px;max-width: 100%;width: 60px;">
 
 

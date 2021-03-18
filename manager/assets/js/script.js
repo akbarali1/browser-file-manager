@@ -304,11 +304,13 @@ function save_file() {
     success: function(a) {
       var fadeTimeout = 1000;
       if (a.success) {
+      $("#bajarilmoqda").css("background-color", "green");
         $('#error-message').hide();
         clearTimeout(window.msg_tmt);
         window.msg_tmt = setTimeout(function() {
           $('#bajarilmoqda').fadeOut();
         }, fadeTimeout);
+      $("#bajarilmoqda").css("background-color", "");
       } else {
         alert(a.message);
         $('#bajarilmoqda').hide();
