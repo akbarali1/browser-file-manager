@@ -104,6 +104,7 @@ switch ($_POST['action']) {
     break;
     case 'rename-file':
         $oldfilename = $_POST['oldfilename'];
+        $newname = $_POST['newname'];
         if (isset($oldfilename)) {
             if (file_exists($oldfilename)) {
                 rename($oldfilename, $newname);

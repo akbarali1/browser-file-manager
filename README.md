@@ -26,6 +26,7 @@ Hozircha qilingan  o'zgarishlar
 Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 
 # Eng tezkor klavishlar
+Kodning asil manbasi [https://github.com/Jhamende/Cute-File-Browser](Cute File Browser with jQuery and PHP) ga tegishli men qo'shimchalar qo'shganman
 1. `Ctrl+S` va `SHift+F12` faylni saqlash
 2. `Esc` ochilgan kod editorni yopadi
 3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
@@ -33,6 +34,17 @@ Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lish
 5. `shift+p` yangi papka ochadi (nom berish uchun popup chiqadi)
 6. `shift+n` yangi parolni o`rnatish (nom berish uchun popup chiqadi)
 7. `shift+w` ochilgan [Ace Editor](https://ace.c9.io/) ni yopadi
+
+# [https://github.com/pheditor/pheditor](Pheditor.php) uchun 
+
+kodning asil manbasi [https://github.com/pheditor/pheditor](Pheditor.php) ga tegishli men qo'shimchalar qo'shganman.
+1. `Ctrl+S` va `SHift+F12` faylni saqlash
+2. `ctrl+delete` papkani o'chiradi, `shift+dellete` falni o`chiradi
+3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
+4. `shift+f` yangi fayl ochadi (nom berish uchun popup chiqadi)
+5. `shift+p` yangi papka ochadi (nom berish uchun popup chiqadi)
+6. `f2` fayl nomini o'zgartirish, `f3` papka nomini o`zgartirish
+7. `shift+r` chap tarafdadi barcha fayllarni qayta yuklash yangilash.
 
 # Kode yozivni muharrirda ishlovchi tezkor klavishlar
 File menjrda kodni taxrirlab `ctrl+s` yoki `shift+f12` qilib saqlaganingizda sahifa yangilanmay kodingizni saqlaydi va yana kod yozaverasiz (bunda kodingizni `ctrl+z` qilib asil holatigacha qaytarish mumkun.)
