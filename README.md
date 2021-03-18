@@ -26,7 +26,7 @@ Hozircha qilingan  o'zgarishlar
 Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 
 # Eng tezkor klavishlar
-Kodning asil manbasi [https://github.com/Jhamende/Cute-File-Browser](Cute File Browser with jQuery and PHP) ga tegishli men qo'shimchalar qo'shganman
+Kodning asil manbasi [Cute File Browser with jQuery and PHP](https://github.com/Jhamende/Cute-File-Browser) ga tegishli men qo'shimchalar qo'shganman
 1. `Ctrl+S` va `SHift+F12` faylni saqlash
 2. `Esc` ochilgan kod editorni yopadi
 3. `Ctrl+b` faylning joriy vaqtidan nusxa olib qo'yish (bunda fayl o'sha holatidan yangi nom bilan o'sha papkaga yangi fayl sifatida saqlanadi)
@@ -35,7 +35,7 @@ Kodning asil manbasi [https://github.com/Jhamende/Cute-File-Browser](Cute File B
 6. `shift+n` yangi parolni o`rnatish (nom berish uchun popup chiqadi)
 7. `shift+w` ochilgan [Ace Editor](https://ace.c9.io/) ni yopadi
 
-# [https://github.com/pheditor/pheditor](Pheditor.php) uchun 
+# [Pheditor.php](https://github.com/pheditor/pheditor) uchun 
 
 kodning asil manbasi [https://github.com/pheditor/pheditor](Pheditor.php) ga tegishli men qo'shimchalar qo'shganman.
 1. `Ctrl+S` va `SHift+F12` faylni saqlash
