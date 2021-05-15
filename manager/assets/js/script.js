@@ -579,7 +579,7 @@ function open_ace(faylyoli) {
             <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
           </div>
           <textarea name="editor_`+i+`" id="adsafadsfasd_`+i+`" style="width: 100%;height: 100%;display: none;">`+ a.data.file +`</textarea>
-          <input type="text"  style="visibility:hidden" value="` + faylyoli + `" id="fayl_yoli_`+ i +`"  name="fayl_yoli_`+ i +`">
+          <input type="text"  style="visibility:hidden;position: absolute;" value="` + faylyoli + `" id="fayl_yoli_`+ i +`"  name="fayl_yoli_`+ i +`">
           <pre id="editor_`+i+`" style="width: 95%; height: 99.7%" class="acepre"></pre>
         </div>
       </div>`, faylyoli);
