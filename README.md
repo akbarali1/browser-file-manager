@@ -14,7 +14,9 @@ PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 
 # 2 versiyasigagi yangilanish
 
-2 versiyasi chiqarildi. Bunda
+2 versiyasi chiqarildi. Bunda [WinBox.js](https://github.com/nextapps-de/winbox)  qo'shildi. Bu orqali bir vaqtning o'zida cheklanmagan faylla bilan ishlash imkoniyati yaratildi. Faylni yozib huddi windowsning sahifani pastga tashlab qo'ygani singari pastga tashlab keyn boshqa fayl ochib kodni yozib saqlab yana pastga tashlab qo'yaverasiz.
+# Wiewbox holatiga rasm
+![alt text](https://github.com/akbarali1/file-menjr/blob/main/photos/viewbox.png)
 
 # Parolni yanglilash
 
