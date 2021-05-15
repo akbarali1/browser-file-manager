@@ -1,4 +1,7 @@
-# file-menjr
+# File menjr
+Bu heech qanday CMS yoki Framevorklarga ulanmagan holda alohida ishlovchi Fayl taxrirlash ko'rish o'chirish qayta nomlash uchun kichik modul.
+Bunda hech qanday saytingiz yadrosiga ulanmagan holda fayl menjr aloxida tizim sifatida o'rnatiladi. Bu modulning ishlashi uchun hech qanday SQL bazaga ulanish talab qilinmaydi. 
+Fayl menjrda umuman olganda kodni tezroq yozishga juda katta e'tibor qaratilgan. Yani fayllar bilan ishlash emas aynan kod yozishni tezlashtirishga ahamiyat berilgan.
 
 PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 
