@@ -1,6 +1,7 @@
 # File menjr
+
 Bu heech qanday CMS yoki Framevorklarga ulanmagan holda alohida ishlovchi Fayl taxrirlash ko'rish o'chirish qayta nomlash uchun kichik modul.
-Bunda hech qanday saytingiz yadrosiga ulanmagan holda fayl menjr aloxida tizim sifatida o'rnatiladi. Bu modulning ishlashi uchun hech qanday SQL bazaga ulanish talab qilinmaydi. 
+Bunda hech qanday saytingiz yadrosiga ulanmagan holda fayl menjr aloxida tizim sifatida o'rnatiladi. Bu modulning ishlashi uchun hech qanday SQL bazaga ulanish talab qilinmaydi.
 Fayl menjrda umuman olganda kodni tezroq yozishga juda katta e'tibor qaratilgan. Yani fayllar bilan ishlash emas aynan kod yozishni tezlashtirishga ahamiyat berilgan.
 
 PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
@@ -15,10 +16,23 @@ PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 4. http://saytingiz.uz/manager/ ga kiring
 5. Kirish uchun demo parol: `johncms`
 
+# kode editor haqida
+
+Kod editorning ikki hil versiyasi mavjud. O'zingizga qaysi biri maqul bo'lsa shundan fordalaning.
+
+1. http://saytingiz.uz/manager/
+2. http://saytingiz.uz/manager/pheditor.php
+
+![alt text](https://github.com/akbarali1/file-menjr/blob/main/photos/pheditor.png)
+![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/rename.png)
+
 # 2 versiya yangilanishi
-2 versiyasi chiqarildi. Bunda [WinBox.js](https://github.com/nextapps-de/winbox)  qo'shildi. Bu orqali bir vaqtning o'zida cheklanmagan faylla bilan ishlash imkoniyati yaratildi. Faylni yozib huddi windowsning sahifani pastga tashlab qo'ygani singari pastga tashlab keyn boshqa fayl ochib kodni yozib saqlab yana pastga tashlab qo'yaverasiz.
-Kichik eslatma: 2 versiyasida [WinBox.js](https://github.com/nextapps-de/winbox) qo'shilganligi sababli `ctrl+s` `shift+f12` dai ochilgan faylni saqlash `ctrl+b` orqali ochilgan fayldan nusxa olib qo'yish bilan bog'iq muammolarga duch kelindi. Shuning uchun faylni saqlash nusxa olib qo'yish uchun fayl ochilgandagi oynaning chap tarafidagi knopkalar orqali saqlash va nusxalash mumkun. Agarda sizga shu narsa juda zarur bo'lsa 2 versiyasidan pastroq versiyasiga o'rnatishni maslahat bermaan. Lekin eski versiyalarida  [WinBox.js](https://github.com/nextapps-de/winbox) mavjud emas. Kelajakda bu muammoni tuzatishga harakat qilaman.
+
+2 versiyasi chiqarildi. Bunda [WinBox.js](https://github.com/nextapps-de/winbox) qo'shildi. Bu orqali bir vaqtning o'zida cheklanmagan faylla bilan ishlash imkoniyati yaratildi. Faylni yozib huddi windowsning sahifani pastga tashlab qo'ygani singari pastga tashlab keyn boshqa fayl ochib kodni yozib saqlab yana pastga tashlab qo'yaverasiz.
+Kichik eslatma: 2 versiyasida [WinBox.js](https://github.com/nextapps-de/winbox) qo'shilganligi sababli `ctrl+s` `shift+f12` dai ochilgan faylni saqlash `ctrl+b` orqali ochilgan fayldan nusxa olib qo'yish bilan bog'iq muammolarga duch kelindi. Shuning uchun faylni saqlash nusxa olib qo'yish uchun fayl ochilgandagi oynaning chap tarafidagi knopkalar orqali saqlash va nusxalash mumkun. Agarda sizga shu narsa juda zarur bo'lsa 2 versiyasidan pastroq versiyasiga o'rnatishni maslahat bermaan. Lekin eski versiyalarida [WinBox.js](https://github.com/nextapps-de/winbox) mavjud emas. Kelajakda bu muammoni tuzatishga harakat qilaman.
+
 # Wiewbox holatiga rasm
+
 ![alt text](https://github.com/akbarali1/file-menjr/blob/main/photos/viewbox.png)
 
 # Parolni yanglilash
