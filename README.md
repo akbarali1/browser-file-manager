@@ -21,10 +21,9 @@ PHP da qilingan va phpda ishlovchi saytlar uchun fayl menjr
 Kod editorning ikki hil versiyasi mavjud. O'zingizga qaysi biri maqul bo'lsa shundan fordalaning.
 
 1. http://saytingiz.uz/manager/
+   ![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/rename.png)
 2. http://saytingiz.uz/manager/pheditor.php
-
-![alt text](https://github.com/akbarali1/file-menjr/blob/main/photos/pheditor.png)
-![alt text](https://raw.githubusercontent.com/akbarali1/file-menjr/main/photos/rename.png)
+   ![alt text](https://github.com/akbarali1/file-menjr/blob/main/photos/pheditor.png)
 
 # 2 versiya yangilanishi
 
