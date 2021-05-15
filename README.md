@@ -31,8 +31,8 @@ Kod editorning ikki hil versiyasi mavjud. O'zingizga qaysi biri maqul bo'lsa shu
 # 2 versiya yangilanishi
 
 2 - versiyasi chiqarildi. Bunda [WinBox.js](https://github.com/nextapps-de/winbox) qo'shildi.
-Bu orqali bir vaqtning o'zida cheklanmagan fayllar bilan ishlash imkoniyati yaratildi. Faylni yozib huddi windowsning sahifani pastga tashlab qo'ygani singari pastga tashlab keyn boshqa fayl ochib kodni yozib saqlab yana pastga tashlab qo'yaverasiz.
-Kichik eslatma: 2 versiyasida [WinBox.js](https://github.com/nextapps-de/winbox) qo'shilganligi sababli `ctrl+s` `shift+f12` ochilgan faylni saqlash `ctrl+b` orqali ochilgan fayldan nusxa olib qo'yish bilan bog'iq muammolarga duch kelindi. Shuning uchun faylni saqlash nusxa olib qo'yish uchun fayl ochilgandagi oynaning chap tarafidagi knopkalar orqali saqlash va nusxalash mumkun. Agarda sizga shu narsa juda zarur bo'lsa 2 versiyasidan pastroq versiyasiga o'rnatishni maslahat bermaan. Lekin eski versiyalarida [WinBox.js](https://github.com/nextapps-de/winbox) mavjud emas. Kelajakda bu muammoni tuzatishga harakat qilaman.
+Bu orqali bir vaqtning o'zida cheklanmagan fayllar bilan ishlash imkoniyati yaratildi. Faylni yozib huddi windowsning sahifani pastga tashlab qo'ygani singari pastga tashlab keyn boshqa fayl ochib kodni yozib `ctrl+s` ni bosib saqlab yana pastga tashlab qo'yaverasiz.
+[WinBox.js](https://github.com/nextapps-de/winbox) mavjud emas. Kelajakda bu muammoni tuzatishga harakat qilaman.
 
 # Wiewbox holatiga rasm
 
@@ -53,6 +53,8 @@ Hozircha qilingan o'zgarishlar
 1. Jami fayllar va papkalarni ko'rish
 2. Faylni kodlarini ko'rish taxrirlash qayta nomlash o'chirish yangi fayl ochish
 3. Papkani ko'rish taxrirlash qayta nomlash o'chirish yangi papka ochish
+4. Multitablar ochish (cheklanmagan miqdorda)
+5. Parol qo`yish, paroni tangilash
 
 Undan tashqari kod yozishni qiziqarli qilish va tezroq kod yozishga oson bo'lishi uchun zamonaviy [Ace Editor](https://ace.c9.io/) qo'yildi.
 

@@ -51,6 +51,11 @@
       cursor: pointer;
     }
   </style>
+  <?php if (DEMO_VERSION === true) :   ?>
+    <!-- TOP LEFT RIBBON: START COPYING HERE -->
+    <a class="github-fork-ribbon left-top" href="https://github.com/akbarali1/file-menjr" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    <!-- TOP LEFT RIBBON: END COPYING HERE -->
+  <?php endif; ?>
   <div class="filemanager">
     <div class="search">
       <input type="search" placeholder="Find a file.." />
@@ -69,6 +74,7 @@
   </footer>
   <script src="./assets/js/script.js"></script>
   <input type="hidden" id="foldername">
+  <input type="hidden" id="ochilganeditor">
 </body>
 
 </html>

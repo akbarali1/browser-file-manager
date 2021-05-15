@@ -281,7 +281,7 @@ function aceexit() {
 }
 
 function save_file(idbu) {
-  var contents = $('textarea#adsafadsfasd_' + idbu).text(), fayl_yoli = $('input#fayl_yoli_' + idbu).val();
+  var contents = $('textarea#adsafadsfasd_' + idbu).val(), fayl_yoli = $('input#fayl_yoli_' + idbu).val();
   $.ajax({
     url: "./api.php",
     type: "POST",
@@ -292,22 +292,22 @@ function save_file(idbu) {
     },
     dataType: 'JSON',
     beforeSend: function() {
-      $('#bajarilmoqda').show();
+      $('#bajarilmoqda_' + idbu).show();
     },
     success: function(a) {
       var fadeTimeout = 1000;
       if (a.success) {
-      $("#bajarilmoqda").css("background-color", "green");
-        $('#error-message').hide();
+      $('#bajarilmoqda_' + idbu).css("background-color", "green");
+        $('#error-message_' + idbu).hide();
         clearTimeout(window.msg_tmt);
         window.msg_tmt = setTimeout(function() {
-          $('#bajarilmoqda').fadeOut();
+          $('#bajarilmoqda_' + idbu).fadeOut();
         }, fadeTimeout);
-      $("#bajarilmoqda").css("background-color", "");
+      $('#bajarilmoqda_' + idbu).css("background-color", "");
       } else {
         alert(a.message);
-        $('#bajarilmoqda').hide();
-        $('#error-message').show();
+        $('#bajarilmoqda_' + idbu).hide();
+        $('#error-message_' + idbu).show();
       }
     }
   });
@@ -326,19 +326,19 @@ var makeBackup = function(idbu) {
     },
     dataType: 'JSON',
     beforeSend: function() {
-      $('#bajarilmoqda').show();
+      $('#bajarilmoqda_' + idbu).show();
     },
     success: function(reply) {
       var fadeTimeout = 1000;
       if (reply.success) {
         clearTimeout(window.msg_tmt);
         window.msg_tmt = setTimeout(function() {
-          $('#bajarilmoqda').fadeOut();
+          $('#bajarilmoqda_' + idbu).fadeOut();
         }, fadeTimeout);
       } else {
         alert(reply.message);
-        $('#bajarilmoqda').hide();
-        $('#error-message').show();
+        $('#bajarilmoqda_' + idbu).hide();
+        $('#error-message_' + idbu).show();
       }
     }
   });
@@ -510,7 +510,6 @@ function newfolder() {
   }
 }
 
-
 function newpassword() {
   var newpassword = prompt("Enter the new password name:", "");
   if (newpassword == null || newpassword == "") {
@@ -546,15 +545,24 @@ function oynacha(html, faylyoli) {
     html: html,
     x: "center",
     y: "center",
-    width: '95%',
-    height: '95%',
+    width: '49.99%',
+    height: '100%',
+    /*
+     * Bu narsa winboxni yopmoqchi bo`lsa chiqadi siz haqiqatdan oynani yopasizmi deb
     onclose: function(force) {
       return !confirm("Close window?");
     }
+    */
   });
 }
+
+function kursor_keldi(id) {
+  $('#ochilganeditor').val(id);
+}
+
 var i = 0;
 function open_ace(faylyoli) {
+  var idbu =  $('#ochilganeditor').val();
   $.ajax({
     url: "./api.php",
     type: "POST",
@@ -569,18 +577,18 @@ function open_ace(faylyoli) {
     success: function(a) {
       if (a.data.faylturi) {
         ++i;
-        oynacha(`<div class="outer-div">
+        oynacha(`<div class="outer-div" id="custom-popover">
         <div class="inner-div">
-          <div class="savebackupedix">
-            <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file(`+ i +`);" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
-            <!-- <img src="./assets/icons/svg/exit.svg" alt="" onclick="aceexit();" style="display:block;padding: 15px;max-width: 100%;width: 90%;"> -->
-            <img src="./assets/icons/svg/backup.svg" idbu="`+ i +`" onclick="makeBackup(`+ i +`);" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
-            <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
-            <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
+          <div class="savebackupedix"  >
+            <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file(`+ i +`);" style="display:block;width: 100%;">
+            <br>
+            <img src="./assets/icons/svg/backup.svg" idbu="`+ i +`" onclick="makeBackup(`+ i +`);" style="display:block;width: 100%;"><br>
+            <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda_` + i + `" style="display:none;width: 100%;"><br>
+            <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message_` + i + `" style="display:none;width: 100%;"><br>
           </div>
-          <textarea name="editor_`+i+`" id="adsafadsfasd_`+i+`" style="width: 100%;height: 100%;display: none;">`+ a.data.file +`</textarea>
+          <textarea name="editor_`+i+`" id="adsafadsfasd_`+i+`" style="width: 100%;height: 10%; display:none;">`+ a.data.file +`</textarea>
           <input type="text"  style="visibility:hidden;position: absolute;" value="` + faylyoli + `" id="fayl_yoli_`+ i +`"  name="fayl_yoli_`+ i +`">
-          <pre id="editor_`+i+`" style="width: 95%; height: 99.7%" class="acepre"></pre>
+          <pre id="editor_`+i+`" onmouseover="kursor_keldi(` + i + `)" style="width: 95%; height: 99.7%" class="acepre"></pre>
         </div>
       </div>`, faylyoli);
         require.config({
@@ -602,9 +610,12 @@ function open_ace(faylyoli) {
           editor.session.setMode("ace/mode/" + a.data.faylturi);
           editor.setOption("enableEmmet", true);
           editor.setOption("wrap", true);
-          editor.setValue($('textarea#adsafadsfasd_'+ i).text());
+          editor.setValue($('textarea#adsafadsfasd_'+ i).val());
           editor.getSession().on('change', function() {
-            $('textarea#adsafadsfasd_'+ i).text(editor.getSession().getValue());
+            var $qiymat = $("#ochilganeditor").val();
+            if ($qiymat != '') {
+              $('textarea#adsafadsfasd_'+ $qiymat).val(editor.getSession().getValue());
+            }            
           });
           editor.commands.addCommand({
             name: "showKeyboardShortcuts",
@@ -666,9 +677,9 @@ shortcut.add("Shift+p", function() {
   'disable_in_input': false,
   'target': document
 });
-/*
 shortcut.add("Ctrl+b", function() {
-  makeBackup();
+  var idbu = $("#ochilganeditor").val();
+  makeBackup(idbu);
 }, {
   'type': 'keydown',
   'propagate': false,
@@ -677,12 +688,14 @@ shortcut.add("Ctrl+b", function() {
 });
 
 $('#do-backup').on('click', function(evt) {
+  var idbu = $("#ochilganeditor").val();
   evt.preventDefault();
-  makeBackup();
+  makeBackup(idbu);
 });
 
 shortcut.add("Ctrl+s", function() {
-  save_file();
+  var idbu = $("#ochilganeditor").val();
+  save_file(idbu);
 }, {
   'type': 'keydown',
   'propagate': false,
@@ -690,14 +703,15 @@ shortcut.add("Ctrl+s", function() {
   'target': document
 });
 shortcut.add("Shift+f12", function() {
-  save_file();
+  var idbu = $("#ochilganeditor").val();
+  save_file(idbu);
 }, {
   'type': 'keydown',
   'propagate': false,
   'disable_in_input': false,
   'target': document
 });
-*/
+/*
 shortcut.add("shift+w", function() {
   aceexit();
 }, {
@@ -715,7 +729,7 @@ shortcut.add("Esc", function() {
   'disable_in_input': false,
   'target': document
 });
-
+*/
 shortcut.add("shift+n", function() {
   newpassword();
 }, {
