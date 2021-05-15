@@ -15,7 +15,7 @@
 require 'classes/yadro.php';
 header('Content-type: application/json');
 
-switch($_POST['action']){
+switch ($_POST['action']) {
     case 'open-file':
         if (isset($_POST['faylyoli'])) {
             $faylyoli = $_POST['faylyoli'];
@@ -37,7 +37,7 @@ switch($_POST['action']){
                 $falext = 'gif';
             }
             if (isset($falext)) {
-                die(json_success('OK', ['data' => array('boshqacha' => 'boshqacha', 'fayl_yoli' => $faylyoli), ]));
+                die(json_success('OK', ['data' => array('boshqacha' => 'boshqacha', 'fayl_yoli' => $faylyoli),]));
             }
             if ($faylturi['extension'] == 'html') {
                 $falext = 'html';
@@ -58,13 +58,13 @@ switch($_POST['action']){
             } else {
                 $falext = 'text';
             }
-            die(json_success('OK', ['data' => array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi' => $falext), ]));
+            die(json_success('OK', ['data' => array('file' => $file, 'fayl_yoli' => $faylyoli, 'faylturi' => $falext),]));
         }
-    break;
+        break;
 }
 //Demo versiyada ishlamaydigan narsalar
 if (DEMO_VERSION === true) {
-     die(json_error(DEMO_TEXT_ERROR));
+    die(json_error(DEMO_TEXT_ERROR));
 }
 switch ($_POST['action']) {
     case 'dellete-file':
@@ -77,7 +77,7 @@ switch ($_POST['action']) {
                 die(json_error('Bunday fayl yo`q'));
             }
         }
-    break;
+        break;
     case 'dellete-folder':
         if (isset($_POST['folder'])) {
             $folder = $_POST['folder'];
@@ -89,7 +89,7 @@ switch ($_POST['action']) {
                 die(json_error('Bunday nomda papka mavjud emas'));
             }
         }
-    break;
+        break;
     case 'rename-folder':
         if (isset($_POST['oldname'])) {
             $newname = $_POST['newname'];
@@ -101,7 +101,7 @@ switch ($_POST['action']) {
                 die(json_error('Bunday nomda papka mavjud emas'));
             }
         }
-    break;
+        break;
     case 'rename-file':
         $oldfilename = $_POST['oldfilename'];
         $newname = $_POST['newname'];
@@ -113,7 +113,7 @@ switch ($_POST['action']) {
                 die(json_error('Bunday nomdagi fayl yo`q'));
             }
         }
-    break;
+        break;
     case 'new-file':
         if (isset($_POST['filename'])) {
             $filename = $_POST['filename'];
@@ -124,12 +124,12 @@ switch ($_POST['action']) {
                 fwrite($fp, "Akbarali");
                 fclose($fp);
                 $filetext = file_get_contents($faylyoli);
-                die(json_success('OK', ['data' => array('fileopen' => $filetext, 'faylyoli' => $faylyoli) ]));
+                die(json_success('OK', ['data' => array('fileopen' => $filetext, 'faylyoli' => $faylyoli)]));
             } else {
                 die(json_error('There is a file with this name'));
             }
         }
-    break;
+        break;
     case 'new-folder':
         if (isset($_POST['folder'])) {
             $foldernamenew = $_POST['folder'];
@@ -142,7 +142,7 @@ switch ($_POST['action']) {
                 die(json_error('There is a folder with this name'));
             }
         }
-    break;
+        break;
     case 'backup':
         if (!empty($_POST['contents'])) {
             $fayl_yoli = $_POST['fayl_yoli'];
@@ -156,7 +156,7 @@ switch ($_POST['action']) {
         } else {
             die(json_error('Saqlash uchun fayl ochilmagan'));
         }
-    break;
+        break;
     case 'save-file':
         if (!empty($_POST['contents'])) {
             $fayl_yoli = $_POST['fayl_yoli'];
@@ -166,7 +166,7 @@ switch ($_POST['action']) {
         } else {
             die(json_error('Saqlash uchun fayl ochilmagan'));
         }
-    break;
+        break;
     case 'newpassword':
         if (!empty($_POST['newpassword'])) {
             echo passwordchange($_POST['newpassword']);

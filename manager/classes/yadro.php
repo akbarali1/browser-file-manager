@@ -22,19 +22,20 @@ define('MAIN_DIR', '..');
 define('ACCESS_IP', '');
 //7b00f8fc9bd0b49025a4c5e09b8ebed3 johncms
 
-function getClientIP(){       
-    if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)){
-           return  $_SERVER["HTTP_X_FORWARDED_FOR"];  
-    }else if (array_key_exists('REMOTE_ADDR', $_SERVER)) { 
-           return $_SERVER["REMOTE_ADDR"]; 
-    }else if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
-           return $_SERVER["HTTP_CLIENT_IP"]; 
-    } 
+function getClientIP()
+{
+    if (array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)) {
+        return  $_SERVER["HTTP_X_FORWARDED_FOR"];
+    } else if (array_key_exists('REMOTE_ADDR', $_SERVER)) {
+        return $_SERVER["REMOTE_ADDR"];
+    } else if (array_key_exists('HTTP_CLIENT_IP', $_SERVER)) {
+        return $_SERVER["HTTP_CLIENT_IP"];
+    }
     return '';
 }
 
 if (empty(ACCESS_IP) === false && ACCESS_IP != getClientIP()) {
-	die('Your IP address is not allowed to access this page.');
+    die('Your IP address is not allowed to access this page.');
 }
 
 if (empty($_SESSION['loginmanager'])) {
@@ -53,21 +54,24 @@ if (isset($_SESSION['loginmanager'])) {
     }
 }
 
-function json_error($message, $params = []){
-	return json_encode(array_merge([
-		'error' => true,
-		'message' => $message,
-	], $params), JSON_UNESCAPED_UNICODE);
+function json_error($message, $params = [])
+{
+    return json_encode(array_merge([
+        'error' => true,
+        'message' => $message,
+    ], $params), JSON_UNESCAPED_UNICODE);
 }
 
-function json_success($message, $params = []){
-	return json_encode(array_merge([
-		'success' => true,
-		'message' => $message,
-	], $params), JSON_UNESCAPED_UNICODE);
+function json_success($message, $params = [])
+{
+    return json_encode(array_merge([
+        'success' => true,
+        'message' => $message,
+    ], $params), JSON_UNESCAPED_UNICODE);
 }
 
-function deleteDirectory($dir) {
+function deleteDirectory($dir)
+{
     if (!file_exists($dir)) {
         return true;
     }
@@ -85,19 +89,20 @@ function deleteDirectory($dir) {
     return rmdir($dir);
 }
 
-function passwordchange($password){
+function passwordchange($password)
+{
     if (isset($password) && empty($password) === false) {
         $contents = file(__FILE__);
         foreach ($contents as $key => $line) {
             if (strpos($line, 'define(\'PASSWORD\'') !== false) {
                 $contents[$key] = "define('PASSWORD', '" . md5(md5($password)) . "');\n";
-				break;
+                break;
             }
         }
         if (is_writable(__FILE__) === false) {
             die(json_error('File is not writable'));
         }
-		file_put_contents(__FILE__, implode($contents));
+        file_put_contents(__FILE__, implode($contents));
         return json_success('Password changed successfully');
     }
 }

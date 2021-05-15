@@ -280,22 +280,15 @@ function aceexit() {
   $("body").css("overflow", "auto");
 }
 
-$('#do-backup').on('click', function(evt) {
-  evt.preventDefault();
-  makeBackup();
-});
-
-
-function save_file() {
-  var contents = $('textarea#adsafadsfasd').text(),
-    fayl_yoli = $("input#fayl_yoli").val();
+function save_file(idbu) {
+  var contents = $('textarea#adsafadsfasd_' + idbu).text(), fayl_yoli = $('input#fayl_yoli_' + idbu).val();
   $.ajax({
     url: "./api.php",
     type: "POST",
     data: {
       action: "save-file",
+      fayl_yoli: fayl_yoli,
       contents: contents,
-      fayl_yoli: fayl_yoli
     },
     dataType: 'JSON',
     beforeSend: function() {
@@ -320,10 +313,8 @@ function save_file() {
   });
 }
 
-
-var makeBackup = function() {
-  var contents = $('textarea#adsafadsfasd').text(),
-    fayl_yoli = $("input#fayl_yoli").val();
+var makeBackup = function(idbu) {
+  var contents = $('textarea#adsafadsfasd_' + idbu).text(), fayl_yoli = $('input#fayl_yoli_' + idbu).val();
 
   $.ajax({
     url: "./api.php",
@@ -547,6 +538,22 @@ function newpassword() {
   }
 }
 
+function oynacha(html, faylyoli) {
+  new WinBox({
+    title: faylyoli,
+    // background: "#ff005d",
+    border: 4,
+    html: html,
+    x: "center",
+    y: "center",
+    width: '95%',
+    height: '95%',
+    onclose: function(force) {
+      return !confirm("Close window?");
+    }
+  });
+}
+var i = 0;
 function open_ace(faylyoli) {
   $.ajax({
     url: "./api.php",
@@ -557,20 +564,32 @@ function open_ace(faylyoli) {
     },
     dataType: "JSON",
     beforeSend: function() {
-      $('textarea#adsafadsfasd').text("");
+    //  $('textarea#adsafadsfasd').text("");
     },
     success: function(a) {
       if (a.data.faylturi) {
-        $('textarea#adsafadsfasd').text(a.data.file);
-        $("input#fayl_yoli").val(a.data.fayl_yoli);
+        ++i;
+        oynacha(`<div class="outer-div">
+        <div class="inner-div">
+          <div class="savebackupedix">
+            <img src="./assets/icons/svg/savefile.svg" alt="" onclick="save_file(`+ i +`);" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+            <!-- <img src="./assets/icons/svg/exit.svg" alt="" onclick="aceexit();" style="display:block;padding: 15px;max-width: 100%;width: 90%;"> -->
+            <img src="./assets/icons/svg/backup.svg" idbu="`+ i +`" onclick="makeBackup(`+ i +`);" style="display:block;padding: 15px;max-width: 100%;width: 90%;">
+            <img src="./assets/icons/svg/prloader.svg" alt="" id="bajarilmoqda" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
+            <img src="./assets/icons/svg/warning.svg" alt="The file was not saved. Refresh the page" title="The file was not saved. Refresh the page" id="error-message" style="display:none;padding: 15px;max-width: 100%;width: 90%;">
+          </div>
+          <textarea name="editor_`+i+`" id="adsafadsfasd_`+i+`" style="width: 100%;height: 100%;display: none;">`+ a.data.file +`</textarea>
+          <input type="text"  style="visibility:hidden" value="` + faylyoli + `" id="fayl_yoli_`+ i +`"  name="fayl_yoli_`+ i +`">
+          <pre id="editor_`+i+`" style="width: 95%; height: 99.7%" class="acepre"></pre>
+        </div>
+      </div>`, faylyoli);
         require.config({
           paths: {
             "ace": "./assets/js/lib/ace"
           }
         });
-        // load ace and extensions
         require(["ace/ace", "ace/ext/emmet", "ace/ext/settings_menu", "ace/ext/language_tools"], function(ace) {
-          var editor = ace.edit("editor");
+          var editor = ace.edit("editor_" + i);
           editor.setOptions({
             copyWithEmptySelection: true,
             enableSnippets: true,
@@ -581,12 +600,11 @@ function open_ace(faylyoli) {
           editor.setTheme("ace/theme/tomorrow_night_eighties");
           ace.require('ace/ext/settings_menu').init(editor);
           editor.session.setMode("ace/mode/" + a.data.faylturi);
-          // enable emmet on the current editor
           editor.setOption("enableEmmet", true);
           editor.setOption("wrap", true);
-          editor.setValue($('textarea#adsafadsfasd').text());
+          editor.setValue($('textarea#adsafadsfasd_'+ i).text());
           editor.getSession().on('change', function() {
-            $('textarea#adsafadsfasd').text(editor.getSession().getValue());
+            $('textarea#adsafadsfasd_'+ i).text(editor.getSession().getValue());
           });
           editor.commands.addCommand({
             name: "showKeyboardShortcuts",
@@ -602,11 +620,6 @@ function open_ace(faylyoli) {
             }
           })
         });
-        $('body,html').animate({
-          scrollTop: 5
-        }, 500);
-        $(".outer-div").css("display", "flex");
-        $("body").css("overflow", "hidden");
       } else if (a.data.boshqacha) {
         $(location).attr('href', a.data.fayl_yoli);
       } else {
@@ -637,31 +650,6 @@ function getCookie(name) {
   return false;
 }
 
-shortcut.add("Ctrl+s", function() {
-  save_file();
-}, {
-  'type': 'keydown',
-  'propagate': false,
-  'disable_in_input': false,
-  'target': document
-});
-shortcut.add("Shift+f12", function() {
-  save_file();
-}, {
-  'type': 'keydown',
-  'propagate': false,
-  'disable_in_input': false,
-  'target': document
-});
-shortcut.add("shift+r", function() {
-  window.location.reload(true)
-  //reloadPage();
-}, {
-  'type': 'keydown',
-  'propagate': false,
-  'disable_in_input': false,
-  'target': document
-});
 shortcut.add("Shift+f", function() {
   newfile();
 }, {
@@ -678,7 +666,7 @@ shortcut.add("Shift+p", function() {
   'disable_in_input': false,
   'target': document
 });
-
+/*
 shortcut.add("Ctrl+b", function() {
   makeBackup();
 }, {
@@ -688,6 +676,28 @@ shortcut.add("Ctrl+b", function() {
   'target': document
 });
 
+$('#do-backup').on('click', function(evt) {
+  evt.preventDefault();
+  makeBackup();
+});
+
+shortcut.add("Ctrl+s", function() {
+  save_file();
+}, {
+  'type': 'keydown',
+  'propagate': false,
+  'disable_in_input': false,
+  'target': document
+});
+shortcut.add("Shift+f12", function() {
+  save_file();
+}, {
+  'type': 'keydown',
+  'propagate': false,
+  'disable_in_input': false,
+  'target': document
+});
+*/
 shortcut.add("shift+w", function() {
   aceexit();
 }, {
